@@ -9,7 +9,8 @@ void setup() {
 void loop() {
   int input = analogRead(13);
   //Serial.println(input);
-  int input_map = map(input, 1200, 4600, 0, 255);
+  int input_map = map(input, 650, 2700, 255, 0);
+  if(input_map<=0)input_map=0;
   Serial.println(input_map);
   ledcWrite(0,input_map);
 }
